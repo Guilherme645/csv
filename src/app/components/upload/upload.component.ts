@@ -8,17 +8,16 @@ import { uploadService } from 'src/app/service/upload.service';
   styleUrls: ['./upload.component.css'],
 })
 export class UploadComponent {
-  responseMessage: string = ''; // Mensagem de feedback
-  csvUrl: string = ''; // URL do arquivo gerado após o upload
-  fileContent: string = ''; // Conteúdo do arquivo gerado
-  isUploading: boolean = false; // Controle do estado do Progress Bar
+  responseMessage: string = ''; 
+  csvUrl: string = ''; 
+  fileContent: string = ''; 
+  isUploading: boolean = false; 
 
   constructor(
     private uploadService: uploadService,
     private messageService: MessageService
   ) {}
 
-  // Método chamado automaticamente ao selecionar o arquivo
   onFileSelect(event: any): void {
     const file: File = event.files[0];
 
@@ -39,20 +38,15 @@ export class UploadComponent {
       });
       return;
     }
-
-    // Inicia o upload automaticamente
     this.uploadFile(file);
   }
 
-  // Método para upload do arquivo
   private uploadFile(file: File): void {
-    // Ativa o Progress Bar
     this.isUploading = true;
-
     this.uploadService.uploadFile(file).subscribe(
       (response) => {
-        this.csvUrl = response.csv_url; // Captura a URL do CSV gerado
-        this.isUploading = false; // Finaliza o Progress Bar
+        this.csvUrl = response.csv_url; 
+        this.isUploading = false; 
         this.messageService.add({
           severity: 'success',
           summary: 'Sucesso',
@@ -60,7 +54,7 @@ export class UploadComponent {
         });
       },
       (error) => {
-        this.isUploading = false; // Finaliza o Progress Bar em caso de erro
+        this.isUploading = false; 
         this.messageService.add({
           severity: 'error',
           summary: 'Erro',
@@ -71,7 +65,6 @@ export class UploadComponent {
     );
   }
 
-  // Método para visualizar e armazenar o conteúdo
   onDownloadContent(): void {
     if (!this.csvUrl) {
       this.messageService.add({
@@ -85,9 +78,7 @@ export class UploadComponent {
     const fileName = this.csvUrl.split('/').pop() || '';
     this.uploadService.getFileContent(fileName).subscribe(
       (response) => {
-        this.fileContent = response.conteudo_arquivo; // Armazena o conteúdo do arquivo
-
-        // Gera o download do conteúdo como arquivo local
+        this.fileContent = response.conteudo_arquivo; 
         this.downloadFile(this.fileContent, 'saida.csv');
       },
       (error) => {
@@ -101,13 +92,12 @@ export class UploadComponent {
     );
   }
 
-  // Método para criar e fazer o download do arquivo no cliente
   private downloadFile(content: string, fileName: string): void {
     const blob = new Blob([content], { type: 'text/csv;charset=utf-8' });
     const link = document.createElement('a');
     link.href = window.URL.createObjectURL(blob);
     link.download = fileName;
     link.click();
-    window.URL.revokeObjectURL(link.href); // Libera a memória após o download
+    window.URL.revokeObjectURL(link.href); 
   }
 }

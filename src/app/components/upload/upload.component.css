@@ -4,22 +4,22 @@
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   border-radius: 5px;
-}
+margin-top: 130px;}
 
 .file-content {
   margin-top: 20px;
   padding: 10px;
-  background-color: #f8f9fa; /* Fundo claro */
-  border: 1px solid #ddd; /* Borda leve */
+  background-color: #f8f9fa; 
+  border: 1px solid #ddd; 
   border-radius: 5px;
 }
 
 .file-content pre {
-  white-space: pre-wrap; /* Quebra de linha automática */
-  word-wrap: break-word; /* Quebra palavras longas */
-  overflow: hidden; /* Remove barra de rolagem */
-  font-size: 14px; /* Tamanho da fonte ajustável */
-  max-width: 100%; /* Ocupa todo o espaço disponível */
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  overflow: hidden; 
+  font-size: 14px; 
+  max-width: 100%; 
 }
 
 
@@ -29,5 +29,15 @@ h4 {
 }
 
 pre {
-  overflow-x: auto; /* Permite rolagem horizontal se o conteúdo for muito grande */
+  overflow-x: auto; 
+}
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
 }

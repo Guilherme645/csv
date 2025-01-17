@@ -1,8 +1,9 @@
-<div class="container full-width">
-  <!-- Toast para mensagens -->
+<div class="logo-container">
+    <img src="assets/via.png" alt="Logo" class="logo">
+  </div>
+  
+  <div class="container full-width">
   <p-toast></p-toast>
-
-  <!-- Componente de Upload -->
   <p-fileUpload
     name="file"
     [customUpload]="true"
@@ -15,14 +16,12 @@
     (onSelect)="onFileSelect($event)"> 
   </p-fileUpload>
 
-  <!-- Progress Bar no modo indeterminate -->
   <p-progressBar
     *ngIf="isUploading"
     mode="indeterminate"
     [style]="{ height: '6px' }">
   </p-progressBar>
 <br>
-  <!-- Botão para visualizar e baixar conteúdo -->
   <p-button
     label="Visualizar Conteúdo"
     class="view-content-btn"
@@ -31,7 +30,6 @@
     [disabled]="!csvUrl">
   </p-button>
 
-  <!-- Exibição do Conteúdo -->
   <div *ngIf="fileContent">
     <h4>Conteúdo do Arquivo:</h4>
     <pre>{{ fileContent }}</pre>
