@@ -1,0 +1,33 @@
+.container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.file-content {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8f9fa; /* Fundo claro */
+  border: 1px solid #ddd; /* Borda leve */
+  border-radius: 5px;
+}
+
+.file-content pre {
+  white-space: pre-wrap; /* Quebra de linha automática */
+  word-wrap: break-word; /* Quebra palavras longas */
+  overflow: hidden; /* Remove barra de rolagem */
+  font-size: 14px; /* Tamanho da fonte ajustável */
+  max-width: 100%; /* Ocupa todo o espaço disponível */
+}
+
+
+h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+pre {
+  overflow-x: auto; /* Permite rolagem horizontal se o conteúdo for muito grande */
+}

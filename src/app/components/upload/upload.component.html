@@ -1,0 +1,39 @@
+<div class="container full-width">
+  <!-- Toast para mensagens -->
+  <p-toast></p-toast>
+
+  <!-- Componente de Upload -->
+  <p-fileUpload
+    name="file"
+    [customUpload]="true"
+    [multiple]="false"
+    [accept]="'.txt'"
+    [maxFileSize]="10000000"
+    [showUploadButton]="false"
+    [cancelLabel]="'Cancelar'"
+    [chooseLabel]="'Processar Arquivo'"
+    (onSelect)="onFileSelect($event)"> 
+  </p-fileUpload>
+
+  <!-- Progress Bar no modo indeterminate -->
+  <p-progressBar
+    *ngIf="isUploading"
+    mode="indeterminate"
+    [style]="{ height: '6px' }">
+  </p-progressBar>
+<br>
+  <!-- Botão para visualizar e baixar conteúdo -->
+  <p-button
+    label="Visualizar Conteúdo"
+    class="view-content-btn"
+    (onClick)="onDownloadContent()"
+    severity="danger"
+    [disabled]="!csvUrl">
+  </p-button>
+
+  <!-- Exibição do Conteúdo -->
+  <div *ngIf="fileContent">
+    <h4>Conteúdo do Arquivo:</h4>
+    <pre>{{ fileContent }}</pre>
+  </div>
+</div>
