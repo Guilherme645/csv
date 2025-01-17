@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UploadComponent } from './components/upload/upload.component';
 import { CarregarArquivoComponent } from './pages/CarregarArquivo/CarregarArquivo.component';
+import { AuthGuard } from './auth.guard';
+import { PageLoginComponent } from './pages/pageLogin/pageLogin.component';
 
 const routes: Routes = [
-  { path: 'inicio', redirectTo: 'home', pathMatch: 'full' }, 
-  { path: 'home', component: CarregarArquivoComponent },
-  { path: 'upload', component: UploadComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: PageLoginComponent },
+  { path: 'home', component: CarregarArquivoComponent, canActivate: [AuthGuard] }, 
 ];
 
 @NgModule({

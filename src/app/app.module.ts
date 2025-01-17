@@ -1,3 +1,4 @@
+import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,11 +17,14 @@ import { MessageService } from 'primeng/api';
 import { CarregarArquivoComponent } from './pages/CarregarArquivo/CarregarArquivo.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { PageLoginComponent } from './pages/pageLogin/pageLogin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UploadComponent,
+    LoginComponent,
+    PageLoginComponent,
 CarregarArquivoComponent  ],
   imports: [
     BrowserModule,
